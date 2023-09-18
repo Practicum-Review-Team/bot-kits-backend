@@ -3,6 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-yandex';
 
+//yandex.strategy.ts
 @Injectable()
 export class YandexStrategy extends PassportStrategy(Strategy, 'yandex') {
   constructor(private readonly configService: ConfigService) {
