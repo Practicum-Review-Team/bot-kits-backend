@@ -277,6 +277,14 @@ paths:
               schema:
                 type: object
       tags: *ref_0
+  /telegram:
+    get:
+      operationId: AuthController_telegramAuth
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags: *ref_0
   /telegram/callback:
     get:
       operationId: AuthController_telegramCallback
@@ -2038,7 +2046,7 @@ components:
         debitDate:
           format: date-time
           type: string
-          example: 2023-09-18T22:07:51.566Z
+          example: 2023-09-21T13:33:46.585Z
       required:
         - status
         - cardMask
@@ -2049,7 +2057,7 @@ components:
         date:
           format: date-time
           type: string
-          example: 2023-09-18T22:07:51.569Z
+          example: 2023-09-21T13:33:46.587Z
         amount:
           type: number
           example: 1000

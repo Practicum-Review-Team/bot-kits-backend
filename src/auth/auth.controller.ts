@@ -19,7 +19,7 @@ import { HttpService } from '@nestjs/axios';
 import { mergeMap } from 'rxjs';
 import { CombinedDto } from './dto/combined.dto';
 import TypeAccount from '../accounts/types/type-account';
-import { TelegramWebAppAuthGuard } from './guards/telegram.guard';
+import { TelegramGuard } from './guards/telegram.guard';
 
 //auth.controller.ts
 interface RequestProfile extends Request {
@@ -377,11 +377,15 @@ export class AuthController {
       );
   }
 
-  @UseGuards(TelegramWebAppAuthGuard)
+  @UseGuards(TelegramGuard)
+  @Get('telegram')
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  telegramAuth() {}
+
+  @UseGuards(TelegramGuard)
   @Get('telegram/callback')
   async telegramCallback(@Req() req) {
     console.log(req.user);
-    const url = 'http://localhost:3000/telegram/callback';
     // req.user будет содержать данные пользователя после успешной авторизации
     return req.user;
   }
